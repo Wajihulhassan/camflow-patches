@@ -26,12 +26,12 @@ config_circle:
 	cd ./build/linux-$(kernel-version) && $(MAKE) silentoldconfig
 
 compile:
-	cd ./build/linux-$(kernel-version) && $(MAKE) -j4
+	cd ./build/linux-$(kernel-version) && $(MAKE) -j8
 	cd ./build/linux-$(kernel-version) && sudo $(MAKE) headers_install ARCH=${arch} INSTALL_HDR_PATH=/usr
 
 rpm:
 	echo "Starting building rpm..."
-	cd ./build/linux-$(kernel-version) && $(MAKE) -j4 rpm-pkg
+	cd ./build/linux-$(kernel-version) && $(MAKE) -j8 rpm-pkg
 
 move_local:
 	echo "Preparing packages..."
